@@ -17,6 +17,35 @@ if (!prefersReducedMotion) {
       card.style.transform = '';
     });
   });
+
+  const heroPanel = document.querySelector('.hero-panel');
+  if (heroPanel) {
+    heroPanel.addEventListener('mousemove', (event) => {
+      const rect = heroPanel.getBoundingClientRect();
+      const ratio = (event.clientX - rect.left) / rect.width;
+      const rotate = (ratio - 0.5) * 16;
+      heroPanel.style.setProperty('--panel-rotate', `${rotate}deg`);
+    });
+
+    heroPanel.addEventListener('mouseleave', () => {
+      heroPanel.style.setProperty('--panel-rotate', '0deg');
+    });
+  }
+
+  const statusText = document.querySelector('.status-text');
+  if (statusText) {
+    const statuses = [
+      'PROFILE SIGNAL ONLINE',
+      'ROBOTIC CORE STABLE',
+      'SENSORS CALIBRATED',
+      'AUTONOMY MODE READY'
+    ];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % statuses.length;
+      statusText.textContent = statuses[index];
+    }, 2400);
+  }
 }
 
 const observer = new IntersectionObserver((entries) => {
