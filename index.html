@@ -1,139 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEURAL_LINK // TERMINAL</title>
-    <style>
-        :root {
-            --neon-blue: #00f3ff;
-            --neon-pink: #ff0055;
-            --bg-dark: #050505;
-            --grid-color: rgba(0, 243, 255, 0.05);
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--neon-blue);
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            overflow-x: hidden;
-            /* Grid Background Effect */
-            background-image: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
-
-        /* Scanline Animation */
-        body::before {
-            content: " ";
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 4px, 3px 100%;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .container {
-            padding: 50px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        header {
-            border-left: 5px solid var(--neon-pink);
-            padding-left: 20px;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-        }
-
-        .glitch {
-            font-size: 3rem;
-            font-weight: bold;
-            text-shadow: 2px 2px var(--neon-pink);
-            animation: blink 2s infinite;
-        }
-
-        .status-panel {
-            border: 1px solid var(--neon-blue);
-            padding: 20px;
-            background: rgba(0, 243, 255, 0.05);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .status-panel::after {
-            content: "SYSTEM_READY";
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            background: var(--bg-dark);
-            padding: 0 10px;
-            font-size: 0.8rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 1px solid var(--neon-pink);
-            color: var(--neon-pink);
-            text-decoration: none;
-            transition: 0.3s;
-            cursor: pointer;
-            margin-top: 20px;
-            background: transparent;
-        }
-
-        .btn:hover {
-            background: var(--neon-pink);
-            color: white;
-            box-shadow: 0 0 20px var(--neon-pink);
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-
-        .data-stream {
-            font-size: 0.9rem;
-            color: rgba(0, 243, 255, 0.6);
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manas Wakchaure — AI, robotics, agriculture technology, and sci-fi inspired engineering portfolio." />
+  <meta name="author" content="Manas Wakchaure" />
+  <meta property="og:title" content="Manas Wakchaure | AI x Robotics" />
+  <meta property="og:description" content="A futuristic portfolio for projects, research, code, and creative exploration." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#06111f" />
+  <title>Manas Wakchaure | AI x Robotics</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%2306111f'/%3E%3Cpath d='M24 88L48 34l16 36 16-36 24 54H88l-8-18-16 36-16-36-8 18H24z' fill='%2368f5ff'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
 
-    <div class="container">
-        <header>
-            <div class="glitch">> ACCESSING_NODE_04</div>
-            <p>Welcome to the digital frontier.</p>
-        </header>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Manas Wakchaure home">
+      <span class="brand-mark">MW</span>
+      <span class="brand-text">MANAS.WAKCHAURE</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#research">Research</a>
+      <a href="#systems">Systems</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-        <section class="status-panel">
-            <h3>USER_ID: ANONYMOUS</h3>
-            <p class="data-stream">LOCATION: [REDACTED]<br>PROTOCOL: SECURE_ENCRYPTION</p>
-            <p>This is your new sci-fi landing page. You can add your projects, your story, or just leave cryptic messages for those who find this link.</p>
-            <button class="btn" onclick="alert('System Initializing...')">INITIALIZE SEQUENCE</button>
-        </section>
+  <main>
+    <section class="hero section-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">AI • Robotics • Agriculture Tech • Japan/India Lens</p>
+        <h1>Building intelligent systems at the edge of code, machines, and the real world.</h1>
+        <p class="lede">
+          Manas Wakchaure explores AI, robotics, automation, and creative technology — from image captioning for agricultural activity to ROS tooling and public research in AI-assisted agriculture.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/manaswakchaure" target="_blank" rel="noreferrer">View GitHub</a>
+          <a class="button ghost" href="#contact">Initialize Contact</a>
+        </div>
+        <div class="signal-row" aria-label="Profile highlights">
+          <span><strong>GitHub</strong> @manaswakchaure</span>
+          <span><strong>ORCID</strong> 0000-0001-6510-241X</span>
+          <span><strong>Base</strong> India</span>
+        </div>
+      </div>
 
-        <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="status-panel">
-                <h4>DATA_LOGS</h4>
-                <p class="data-stream">01. Website built<br>02. CSS glitched<br>03. Deployment ready</p>
-            </div>
-            <div class="status-panel">
-                <h4>NETWORK</h4>
-                <p class="data-stream">LATENCY: 12ms<br>UPTIME: 99.9%</p>
-            </div>
-        </section>
-    </div>
+      <aside class="hero-panel" aria-label="Identity panel">
+        <div class="panel-topline"></div>
+        <img class="avatar" src="https://github.com/manaswakchaure.png" alt="Manas Wakchaure GitHub avatar" />
+        <div class="status">
+          <span class="pulse"></span>
+          <span>PROFILE SIGNAL ONLINE</span>
+        </div>
+        <h2>Manas Wakchaure</h2>
+        <p>Focusing on AI, robotics, automation, and applied intelligent systems.</p>
+        <div class="telemetry">
+          <div><span>Repos</span><strong>4</strong></div>
+          <div><span>Stars</span><strong>3</strong></div>
+          <div><span>Mode</span><strong>Build</strong></div>
+        </div>
+      </aside>
+    </section>
 
+    <section class="ticker" aria-label="Technology ticker">
+      <div class="ticker-track">
+        <span>NEURAL PIPELINES</span><span>ROS</span><span>COMPUTER VISION</span><span>NLP</span><span>AGRI-AI</span><span>AUTOMATION</span><span>ROBOTICS</span><span>PYTHON</span>
+        <span>NEURAL PIPELINES</span><span>ROS</span><span>COMPUTER VISION</span><span>NLP</span><span>AGRI-AI</span><span>AUTOMATION</span><span>ROBOTICS</span><span>PYTHON</span>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Public repositories</p>
+        <h2>Operational modules</h2>
+      </div>
+      <div class="cards">
+        <article class="card tilt">
+          <span class="card-code">01</span>
+          <h3>Final_NLP_Agri</h3>
+          <p>Image captioning model for agricultural activities, connecting visual perception with language for field intelligence.</p>
+          <a href="https://github.com/manaswakchaure/Final_NLP_Agri" target="_blank" rel="noreferrer">Open repository →</a>
+        </article>
+        <article class="card tilt">
+          <span class="card-code">02</span>
+          <h3>xacro</h3>
+          <p>Fork of ROS xacro tooling, an XML macro language used to build cleaner robot-description files.</p>
+          <a href="https://github.com/manaswakchaure/xacro" target="_blank" rel="noreferrer">Open repository →</a>
+        </article>
+        <article class="card tilt">
+          <span class="card-code">03</span>
+          <h3>IT Automation Practice</h3>
+          <p>Automation practice repository forked from Google’s IT certification materials, useful for scripting and systems workflows.</p>
+          <a href="https://github.com/manaswakchaure/it-cert-automation-practice" target="_blank" rel="noreferrer">Open repository →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" class="section research-layout">
+      <div class="research-copy">
+        <p class="eyebrow">Research vector</p>
+        <h2>AI techniques and robotics in agriculture</h2>
+        <p>
+          Manas Wakchaure is listed as an author of “Application of AI Techniques and Robotics in Agriculture: A Review,” published in <em>Artificial Intelligence in the Life Sciences</em>. The theme aligns with autonomous perception, agricultural intelligence, and practical robotics.
+        </p>
+        <a class="button ghost" href="https://doi.org/10.1016/j.ailsci.2023.100057" target="_blank" rel="noreferrer">View publication DOI</a>
+      </div>
+      <div class="holo-card" aria-hidden="true">
+        <div class="holo-grid"></div>
+        <div class="holo-core">AI<br/>AGRI<br/>BOT</div>
+      </div>
+    </section>
+
+    <section id="systems" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Stack map</p>
+        <h2>Systems focus</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>01</span>
+          <h3>Perception</h3>
+          <p>Computer vision and captioning workflows that make visual data understandable and searchable.</p>
+        </div>
+        <div class="timeline-item">
+          <span>02</span>
+          <h3>Robotics</h3>
+          <p>Robot description tooling, ROS ecosystem exploration, and practical automation foundations.</p>
+        </div>
+        <div class="timeline-item">
+          <span>03</span>
+          <h3>Agriculture Intelligence</h3>
+          <p>AI applied to real-world agricultural activities, monitoring, and smarter field-level decision support.</p>
+        </div>
+        <div class="timeline-item">
+          <span>04</span>
+          <h3>Creative Signals</h3>
+          <p>Photography, Japan/India cultural perspective, and short-form visual storytelling through public social channels.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div>
+        <p class="eyebrow">Contact channel</p>
+        <h2>Transmit a collaboration signal.</h2>
+        <p>For AI, robotics, automation, research, or portfolio opportunities, connect through GitHub, LinkedIn, ORCID, YouTube, or Instagram.</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:manaswakchaure@gmail.com">Email</a>
+        <a href="https://github.com/manaswakchaure" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/manas-wakchaure" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://orcid.org/0000-0001-6510-241X" target="_blank" rel="noreferrer">ORCID</a>
+        <a href="https://www.youtube.com/@manaswakchaure" target="_blank" rel="noreferrer">YouTube</a>
+        <a href="https://www.instagram.com/manaswakchaure/" target="_blank" rel="noreferrer">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Manas Wakchaure</span>
+    <a href="#top">Return to orbit ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
