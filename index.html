@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURAL_LINK // TERMINAL</title>
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff0055;
+            --bg-dark: #050505;
+            --grid-color: rgba(0, 243, 255, 0.05);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--neon-blue);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            overflow-x: hidden;
+            /* Grid Background Effect */
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Scanline Animation */
+        body::before {
+            content: " ";
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 3px 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .container {
+            padding: 50px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        header {
+            border-left: 5px solid var(--neon-pink);
+            padding-left: 20px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .glitch {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px var(--neon-pink);
+            animation: blink 2s infinite;
+        }
+
+        .status-panel {
+            border: 1px solid var(--neon-blue);
+            padding: 20px;
+            background: rgba(0, 243, 255, 0.05);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .status-panel::after {
+            content: "SYSTEM_READY";
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: var(--bg-dark);
+            padding: 0 10px;
+            font-size: 0.8rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            text-decoration: none;
+            transition: 0.3s;
+            cursor: pointer;
+            margin-top: 20px;
+            background: transparent;
+        }
+
+        .btn:hover {
+            background: var(--neon-pink);
+            color: white;
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .data-stream {
+            font-size: 0.9rem;
+            color: rgba(0, 243, 255, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="glitch">> ACCESSING_NODE_04</div>
+            <p>Welcome to the digital frontier.</p>
+        </header>
+
+        <section class="status-panel">
+            <h3>USER_ID: ANONYMOUS</h3>
+            <p class="data-stream">LOCATION: [REDACTED]<br>PROTOCOL: SECURE_ENCRYPTION</p>
+            <p>This is your new sci-fi landing page. You can add your projects, your story, or just leave cryptic messages for those who find this link.</p>
+            <button class="btn" onclick="alert('System Initializing...')">INITIALIZE SEQUENCE</button>
+        </section>
+
+        <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="status-panel">
+                <h4>DATA_LOGS</h4>
+                <p class="data-stream">01. Website built<br>02. CSS glitched<br>03. Deployment ready</p>
+            </div>
+            <div class="status-panel">
+                <h4>NETWORK</h4>
+                <p class="data-stream">LATENCY: 12ms<br>UPTIME: 99.9%</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
